@@ -1,0 +1,102 @@
+/* dichiarazione font */
+
+@font-face {
+    font-family: "Roxbo Bold";
+    src: url("fonts/RoxboroughCF-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roxbo";
+    src: url("fonts/RoxboroughCF-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roxbo Ita";
+    src: url("fonts/RoxboroughCF-MediumItalic.ttf");
+}
+
+/* proprietà globali */
+
+body {
+    font-family: "Roxbo";
+    background-color: #faf3e0;
+}
+
+h1 {
+    font-size: calc(3vw + 2.5rem);
+    font-family: "Roxbo Bold";
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 42px;
+    font-family: "Roxbo Bold";
+}
+
+h4 {
+    font-size: 35px;
+}
+
+h5 {
+    font-family: "Roxbo Bold";
+}
+
+hr {
+    border: none;
+    border-top: 3px double #303926;
+    color: #303926;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+hr:after {
+    background: #faf3e0;
+    content: "§";
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    font-size: 40px;
+}
+
+/* proprietà classi */
+
+.navbar {
+    background-color: #303926;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.card {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 80px;
+    background-color: #c9c0b9;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #303926 !important;
+}
+
+.Img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
