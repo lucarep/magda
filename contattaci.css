@@ -1,0 +1,153 @@
+/* dichiarazione font */
+
+@font-face {
+    font-family: "Roxbo Bold";
+    src: url("fonts/RoxboroughCF-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roxbo";
+    src: url("fonts/RoxboroughCF-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roxbo Ita";
+    src: url("fonts/RoxboroughCF-MediumItalic.ttf");
+}
+
+
+/* proprietà globali */
+
+body {
+    font-family: "Roxbo";
+    background-color: #faf3e0;
+    background-image: url(pictures/pexels-min-an-1599969-removebg-preview.png);
+    background-position: 0% 200%;
+    background-size: 600px 700px;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: calc(1vw + 2rem);
+    font-family: "Roxbo Bold";
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 42px;
+    font-family: "Roxbo Bold";
+}
+
+h4 {
+    font-size: 35px;
+}
+
+h5 {
+    font-family: "Roxbo Bold";
+}
+
+hr {
+    border: none;
+    border-top: 3px double #303926;
+    color: #303926;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+hr:after {
+    background: #faf3e0;
+    content: "§";
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+/* proprietà classi */
+
+.navbar {
+    background-color: #303926;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+#form {
+    position: relative;
+    width: 500px;
+    margin: 50px auto 100px auto;
+}
+
+input {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+input:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+textarea {
+    width: 470px;
+    max-width: 470px;
+    height: 110px;
+    max-height: 110px;
+    padding: 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    font-size: 0.875em;
+    border: solid 1px #303926;
+}
+
+textarea:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#form_desc{
+    position: relative;
+    margin: 100px 0 25px 0;
+    font-size: 3em;
+    text-align: center;
+    letter-spacing: 10px;
+    color: #303926;
+}
+
+#p_form_desc{
+    position: relative
+    margin 100px 0 25px 0;
+    font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+#submit {
+    width: 470px;
+
+    padding: 0;
+    margin: -5px 0px 0px 0px;
+
+    font-size: 0.875em;
+    color: #303926;
+
+    outline: none;
+    cursor: pointer;
+
+    border: solid 1px #303926;
+    border-top: none;
+}
+
+#submit:hover {
+    color: #e2dedb;
+}
+

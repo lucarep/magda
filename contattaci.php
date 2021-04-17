@@ -5,7 +5,7 @@
         <title> Magda </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="contattaci.css" rel="stylesheet" type="text/css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -26,5 +26,28 @@
               </div>
             </div>
         </nav>
+        <div class="container-fluid">
+          <header id="form_desc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+          </svg> <br>
+            CONTATTACI
+          </header>
+          <p id="p_form_desc">
+            Hai già fatto tanto per le tue piante e per il pianeta <br> dicci cosa possiamo fare noi ora per te.
+          </p>
+          <form id="form">
+            <input id="nome" type="text" placeholder="NOME">
+            <input id="email" type="text" placeholder="EMAIL">
+            <textarea id="messaggio" type="text" placeholder="MESSAGGIO"></textarea>
+            <input id = "submit" type="submit" value="INVIA!">
+          </form>
+        </div>
+        <footer>
+          <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
+            © 2021 Proudly made in Italy:
+            <a class="text-light" href="index.html">Magda</a>
+          </div>
+        </footer>
     </body>
 </html>
