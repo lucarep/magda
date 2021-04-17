@@ -5,10 +5,10 @@
         <title> Magda </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-        <link href="contattaci.css" rel="stylesheet" type="text/css">
+        <link href="style.css" rel="stylesheet" type="text/css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body id="bodyC">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Magda</a>
@@ -36,11 +36,11 @@
           <p id="p_form_desc">
             Hai già fatto tanto per le tue piante e per il pianeta <br> dicci cosa possiamo fare noi ora per te.
           </p>
-          <form id="form">
-            <input id="nome" type="text" placeholder="NOME">
-            <input id="email" type="text" placeholder="EMAIL">
-            <textarea id="messaggio" type="text" placeholder="MESSAGGIO"></textarea>
-            <input id = "submit" type="submit" value="INVIA!">
+          <form id="formC">
+            <input id="nomeC" type="text" placeholder="NOME">
+            <input id="emailC" type="email" placeholder="EMAIL">
+            <textarea id="messaggioC" type="text" placeholder="MESSAGGIO"></textarea>
+            <input id="submitC" type="submit" value="INVIA!">
           </form>
         </div>
         <footer>
