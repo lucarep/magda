@@ -87,10 +87,11 @@ li {
 }
 
 .card {
+    margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    margin-left: 80px;
     background-color: #c9c0b9;
+    
 }
 
 .card:hover {
@@ -125,8 +126,9 @@ li {
     font-family: "Roxbo";
     background-color: #faf3e0;
     background-image: url(pictures/pexels-min-an-1599969-removebg-preview.png);
-    background-position: 0% 250%;
-    background-size: 600px 700px;
+    background-position: left bottom;
+    background-attachment: fixed;
+    background-size: 1000px 1000px;
     background-repeat: no-repeat;
 }
 

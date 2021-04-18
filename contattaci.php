@@ -1,3 +1,33 @@
+<?php
+
+  $messaggio_inviato = false;
+
+  // controllo se è stata inserita l'email
+  if(isset($_POST['email']) && $_POST['email'] != ''){
+
+    // controllo se l'email è valida
+    if (filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
+      $nome = $_POST['nome'];
+      $email = $_POST['email'];
+      $messaggio = $_POST['messaggio'];
+
+      // preparo l'invio della mail
+
+      $to = "";
+      $contenuto = "";
+      $contenuto .= "Nuovo messaggio da: ".$nome."\r\n";
+      $contenuto .= "messaggio: ".$messaggio."\r\n";
+
+      // mail($to,$email,$contenuto);
+
+      $messaggio_inviato = true;
+    }
+    
+  }
+  
+?>
+
+
 <!DOCTYPE html>
 <html lang="it">
     <head>
@@ -9,6 +39,44 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     </head>
     <body id="bodyC">
+      <?php
+        if ($messaggio_inviato):          
+      ?>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Magda</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link" href="index.html">Home</a>
+                  <a class="nav-link" href="#">Accedi</a>
+                  <a class="nav-link" href="#">Registrati</a>
+                  <a class="nav-link active" aria-current="page" href="contattaci.php">Contattaci</a>
+                  <a class="nav-link" href="about_us.html">About us</a>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <header id="form_desc">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+              <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+          </svg> <br>
+          Grazie per averci contattato! 
+        </header>
+        <p id="p_form_desc">
+            Ti risponderemo al più presto.
+        </p>
+        <footer>
+          <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
+            © 2021 Proudly made in Italy:
+            <a class="text-light" href="index.html">Magda</a>
+          </div>
+        </footer>      
+      <?php
+        else:
+      ?>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Magda</a>
@@ -36,10 +104,10 @@
           <p id="p_form_desc">
             Hai già fatto tanto per le tue piante e per il pianeta <br> dicci cosa possiamo fare noi ora per te.
           </p>
-          <form id="formC">
-            <input id="nomeC" type="text" placeholder="NOME">
-            <input id="emailC" type="email" placeholder="EMAIL">
-            <textarea id="messaggioC" type="text" placeholder="MESSAGGIO"></textarea>
+          <form id="formC" action="contattaci.php" method="POST">
+            <input id="nomeC" name="nome" type="text" placeholder="NOME" required>
+            <input id="emailC" name="email" type="email" placeholder="EMAIL" required>
+            <textarea id="messaggioC" name="messaggio" type="text" placeholder="MESSAGGIO" required></textarea>
             <input id="submitC" type="submit" value="INVIA!">
           </form>
         </div>
@@ -49,5 +117,8 @@
             <a class="text-light" href="index.html">Magda</a>
           </div>
         </footer>
+        <?php
+        endif;
+        ?>
     </body>
 </html>
