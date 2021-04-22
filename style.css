@@ -112,6 +112,21 @@ li {
     height: sectionto;
 }
 
+.carousel-caption {
+    background-color: #ccb28265 !important;
+}
+
+#quote {
+   border: 5px;
+   text-align: center;
+}
+
+#output {
+    text-align: center;
+    margin: 25px auto;
+    font-size: 26px;
+}
+
 /**********************
        CONTATTACI
 **********************/
