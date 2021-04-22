@@ -30,10 +30,10 @@
             <div class="row"> 
               <div class="col-lg">
                 <h1 class="text-left" style="background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;">Ti presentiamo <br> Magda </h1>
+                -webkit-text-fill-color: transparent; font-size: clamp(2rem, 2vw + 3rem, 6rem) ">Ti presentiamo <br> Magda </h1>
                 <h4 class="text-left" style="size: 80px;">La webapp che aiuta a prenderti cura <br> delle tue piante.</h4>
                 <br>
-                <button type="submit" class="btn btn-xxl btn-primary mb-4" style="font-size: 25px; border-radius: 25px;">
+                <button type="submit" class="btn btn-xxl btn-primary mb-4" style="font-size: 25px">
                   Registrati Subito
                 </button>
               </div>
@@ -45,6 +45,9 @@
           <hr>
           <div class="container-fluid my-3" style="background-color: #faf3e0; color: #303926">
             <div class="row"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+              </svg>
               <h3 class="text-center"> Rendendolo meravigliosamente semplice</h3>
             </div>
             <div class="row">
@@ -102,30 +105,13 @@
                 </div>
             </div>
           </div>
-          <hr> 
-          <div class="container-fluid mx-0" style="background-color: #faf3e0; color: #303926;">
-            <div class="row">
-              <div class="col-sm" style="text-align: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-                  <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
-                </svg>
-                <h1>Carattersitiche principali</h1>
-                <ul style="text-align: left;">
-                  <li> aggiungi quante piante vuoi </li>
-                  <li> dai un nickname alle tue piante </li>
-                  <li> schedule dinamico in base alle stagioni </li>
-                  <li> e tanto altro ancora </li>
-                </ul>
-              </div>
-              <div class="col-sm">
-                <img src="pictures/pexels-cottonbro-4503815.jpg" class="Img" style="margin-bottom: 20px;">
-              </div>
-            </div>
-          </div>
-          <!--curiosità-->   
           <hr>
+          <!--curiosità-->
           <div class="container my-3" style="background-color: #faf3e0; color: #303926">
             <div class="row"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                  <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+              </svg>
               <h3 class="text-center"> Alcune curiosità che forse non conoscevi</h3>
             </div>
             <div class="row">
@@ -139,8 +125,9 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="pictures/pexels-pixabay-66896.jpg" class="d-block w-100" style="width:95px;height:500px">
-                    <div class="carousel-caption d-none d-md-block">
+                    <img src="pictures/pexels-pixabay-66896.jpg" class="d-block w-100" style="width:95px;height:500px;">
+                    <div class="carousel-caption" style="background-color: #f9c1b1;
+                    background-image: linear-gradient(315deg, #f9c1b1 0%, #fb8085 74%);">
                       <h3>Tappeti di fiori</h3>
                       <p>Da metà marzo a metà maggio una parte dell'Olanda si trasforma in un immenso tappeto di fiori.<br>
                          Si inizia a marzo, con lo sbocciare dei crocus, seguiti dai narcisi e dai giacinti.<br>
@@ -150,7 +137,9 @@
                   </div>
                   <div class="carousel-item">
                     <img src="pictures/pexels-ella-wei-6601422.jpg" class="d-block w-100" style="width:95px;height:500px">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption" style="background-color: #e1bc29;
+                    background-image: linear-gradient(316deg, #e1bc29 0%, #e36463 74%);
+                    ">
                       <h3>Piante anti-zanzare</h3>
                       <p>Le piante antizanzare sono un ottimo repellente naturale per tenere lontane<br>
                          le zanzare dal vostro balcone e dalla vostra casa.<br>
@@ -161,7 +150,8 @@
                   </div>
                   <div class="carousel-item">
                     <img src="pictures/pexels-cottonbro-5103048.jpg" class="d-block w-100" style="width:95px;height:500px">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption" style="background-color: #dfa375;
+                    background-image: linear-gradient(315deg, #dfa375 0%, #c58e7f 74%);">
                       <h3>Le piante nel deserto</h3>
                       <p>Il deserto è un posto difficile per essere una pianta a causa dell'aria secca e calda.<br>
                          Per trasportare i nutrienti dalle loro radici, le piante fanno in modo che l'acqua dalle<br>
@@ -171,7 +161,9 @@
                   </div>
                   <div class="carousel-item">
                     <img src="pictures/pexels-karolina-grabowska-4041392.jpg" class="d-block w-100" style="width:95px;height:500px">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption" style="background-color: #f9d1b7;
+                    background-image: linear-gradient(315deg, #f9d1b7 0%, #f894a4 74%);
+                    ">
                       <h3>Piante medicinali</h3>
                       <p>Le proprietà terapeutiche delle piante sono parte della memoria storica di tante culture tradizionali.<br>
                          I rimedi a base di erbe sono da sempre utilizzati per curare malattie e disturbi.<br>
@@ -182,7 +174,9 @@
                   </div>
                   <div class="carousel-item">
                     <img src="pictures/pexels-lexie-blessing-4173853.jpg" class="d-block w-100" style="width:95px;height:500px">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption" style="background-color: #a38560;
+                    background-image: linear-gradient(315deg, #a38560 0%, #e0d4ae 74%);
+                    ">
                       <h3>Concimi naturali per le tue piante</h3>
                       <p>Le piante richiedono la giusta dose di fertilizzanti. Questi sono nutrienti fondamentali<br>
                          per garantirne la fioritura e la durata nel tempo. Il terreno, infatti, deve essere<br>
@@ -203,17 +197,38 @@
               </div>
             </div>
           </div>
+          <hr>
+          <div class="container-fluid mx-0" style="background-color: #faf3e0; color: #303926;">
+            <div class="row">
+              <div class="col-sm" style="text-align: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                  <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                  <h1>Carattersitiche principali</h1>
+                </svg>
+                
+                <ul style="text-align: left;">
+                  <li> aggiungi quante piante vuoi </li>
+                  <li> dai un nickname alle tue piante </li>
+                  <li> schedule dinamico in base alle stagioni </li>
+                  <li> e tanto altro ancora </li>
+                </ul>
+              </div>
+              <div class="col-sm">
+                <img src="pictures/pexels-cottonbro-4503815.jpg" class="Img" style="margin-bottom: 20px; max-width: 1800px; max-height: 800px;">
+              </div>
+            </div>
+          </div>
         <!--random quote-->
         <hr>
-          <div class="container my-3" style="background-color: #faf3e0; color: #303926">
+          <div class="container-fluid my-3" style="background-color: #faf3e0; color: #303926">
             <div class="row"> 
               <div id="quote">
-                <button id="quoteButton">Scopri una frase</button>
-                <div id="output"><br><br></div>
+                <div id="output" style="font-size: clamp(1rem, 1vw + 1rem, 3rem);"><br><br></div>
+                <button class ="btn btn-xxl btn-primary mb-4" id="quoteButton" style="font-size: 25px">Scopri una frase</button>
               </div>
             </div>
             <script src="main.js"></script>
-          
+          </div>
           <footer class="text-center" style="background-color: #C9C0B9;">
             <div class="container p-4 pb-0" style="background-color:#C9C0B9; color: #303926;">
               <section class="">

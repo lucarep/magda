@@ -90,8 +90,7 @@ li {
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    background-color: #c9c0b9;
-    
+    background-color: #c9c0b9;  
 }
 
 .card:hover {
@@ -103,7 +102,9 @@ li {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited {
-    background-color: #303926 !important;
+    background-color: #303926 !important; 
+    border-radius: 25px;
+    border: #303926;
 }
 
 .Img {
@@ -113,7 +114,9 @@ li {
 }
 
 .carousel-caption {
-    background-color: #ccb28265 !important;
+    background-color: #c9c0b9 !important;
+    color: #303926;
+    border-radius: 25px;
 }
 
 #quote {
