@@ -90,7 +90,7 @@ li {
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 10px;
-    background-color: #c9c0b9;  
+    background-color: #c9c0b9;
 }
 
 .card:hover {
@@ -102,7 +102,7 @@ li {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited {
-    background-color: #303926 !important; 
+    background-color: #303926 !important;
     border-radius: 25px;
     border: #303926;
 }
@@ -114,14 +114,14 @@ li {
 }
 
 .carousel-caption {
-    background-color: #c9c0b9 !important;
-    color: #303926;
+    /*background-color: #c9c0b9 !important;*/
+    color: white;
     border-radius: 25px;
 }
 
 #quote {
-   border: 5px;
-   text-align: center;
+    border: 5px;
+    text-align: center;
 }
 
 #output {
@@ -319,25 +319,162 @@ p.pAU {
     max-height: 400px;
 }
 
-
 /**********************
         LOGIN 
 **********************/
 
-#formLogin{
-    position: relative ;
+#formLogin {
+    position: relative;
     margin: 25px 0 25px 0;
     text-align: center;
     letter-spacing: 10px;
+}
+
+#emailL {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#emailL:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#passwordL {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#passwordL:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#submitL {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    margin: -5px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    color: #303926;
+    border: solid 1px #303926;
+}
+
+#submitL:hover {
+    background: #303926;
+    color: #e2dedb;
 }
 
 /**********************
        REGISTRATI
 **********************/
 
-#formRegistrati{
-    position: relative ;
+#formRegistrati {
+    position: relative;
     margin: 25px 0 25px 0;
     text-align: center;
     letter-spacing: 10px;
+}
+
+#nomeR {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#nomeR:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#cognomeR {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#cognomeR:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#emailR {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#emailR:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#passwordR {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#passwordR:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#submitR {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    margin: -5px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    color: #303926;
+    border: solid 1px #303926;
+}
+
+#submitR:hover {
+    background: #303926;
+    color: #e2dedb;
 }
