@@ -14,7 +14,7 @@
     crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body background="pictures\pexels-madison-inouye-1405762.jpg">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">Magda</a>
@@ -57,12 +57,6 @@
         </form>
 
       </div>
-      <div class="col-sm">
-        <img src="pictures/pexels-scott-webb-1048035.jpg" class="img-fluid" width="400" 
-              height="400"> 
-
-      
-       </div>
     </div>
 
   <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">

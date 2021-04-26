@@ -14,9 +14,9 @@
     crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body background="pictures\pexels-min-an-1131458 (1).jpg" >
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
+    <div class="container-fluid" id="PagLogin">
       <a class="navbar-brand" href="index.html">Magda</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
   <hr>
   <div class="container-fluid" style="color: #303926;">
     <div class="row" style="text-align: center;">
-      <div class="col-sm animate__animated animate__fadeInDownBig ">
+      <div class="animate__animated animate__fadeInDownBig ">
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk"
           viewBox="0 0 16 16">
           <path
@@ -50,11 +50,6 @@
           <br>
           <input id="submitL" type="submit" value="LOGIN">
         </form>
-      </div>
-      <div class="col-sm">
-              <img src="pictures/pexels-karolina-grabowska-4622253.jpg" class="img-fluid" width="400" 
-              height="300">
-      
       </div>
     </div>
     <footer>
