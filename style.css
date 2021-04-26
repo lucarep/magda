@@ -329,6 +329,17 @@ p.pAU {
     letter-spacing: 10px;
 }
 
+#bodyL {
+    -webkit-background-style: cover;
+    -moz-background-style: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: center, center;
+    background-repeat: no-repeat;
+}
+
 #emailL {
     font-size: 0.875em;
     width: 470px;
@@ -381,8 +392,6 @@ p.pAU {
     color: #e2dedb;
 }
 
-
-
 /**********************
        REGISTRATI
 **********************/
@@ -392,7 +401,17 @@ p.pAU {
     margin: 25px 0 25px 0;
     text-align: center;
     letter-spacing: 10px;
+}
 
+#bodyR {
+    -webkit-background-style: cover;
+    -moz-background-style: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 #nomeR {
