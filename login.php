@@ -38,7 +38,7 @@
         </svg> <br>
         <h1 class="text-center " style="letter-spacing: 10px;">Accedi</h1>
         <p style="letter-spacing: 5px;"> Inserisci le credenziali qui sotto</p>
-        <form id="formLogin">
+        <form id="formLogin" action="file php\login.inc.php" method="post">
           <input id="emailL" type="email" placeholder="EMAIL" required>
           <br>
           <input id="passwordL" type="password" placeholder="PASSWORD" required>

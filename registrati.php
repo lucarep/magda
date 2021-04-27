@@ -37,16 +37,16 @@
           <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
         </svg> <br>
         <h1 class="text-center" style="letter-spacing: 10px;">Registrati, <br> è semplice.</h1>
-        <form id="formRegistrati">
-          <input id="nomeR" type="text" placeholder="NOME" required>
+        <form id="formRegistrati" action="file php\registrati.inc.php" method="post">
+          <input id="nomeR"  name="nome" type="text" placeholder="NOME" required>
           <br>
-          <input id="cognomeR" type="text" placeholder="COGNOME" required>
+          <input id="cognomeR"  name="cognome" type="text" placeholder="COGNOME" required>
           <br>
-          <input id="emailR" type="email" placeholder="EMAIL" required>
+          <input id="emailR"  name="email" type="email" placeholder="EMAIL" required>
           <br>
-          <input id="passwordR" type="password" placeholder="PASSWORD" required>
+          <input id="passwordR"  name="password" type="password" placeholder="PASSWORD" required>
           <br>
-          <input id="submitR" type="submit" value="INVIA!">
+          <input id="submitR" name="submit" type="submit" value="INVIA!">
 
         </form>
 
