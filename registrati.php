@@ -6,9 +6,10 @@
   <title> Magda </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
   <link href="style.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="animate.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
 </head>
 
 <body id="bodyR" background="pictures\scott-webb-C6oPXOatFD8-unsplash.jpg">
@@ -97,5 +98,7 @@
       <a class="text-light" href="index.html">Magda</a>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
+<script type="module" defer src="JS\kursor.js"></script>
 
 </html>

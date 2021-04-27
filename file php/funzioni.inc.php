@@ -1,5 +1,7 @@
 <?php
  
+ /* FUNZIONI PER REGISTRAZIONE */
+
  function emptyInputSignup($nome, $cognome, $email, $password){
    $result;
    if( empty($nome) || empty($cognome) || empty($email) || empty($password)) {
@@ -69,3 +71,5 @@
     header("location: ../registrati.php?error=nessunerrore");
     exit();
   }
+
+  /* FUNZIONI PER LOGIN */
