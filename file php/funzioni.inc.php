@@ -11,19 +11,19 @@
    }
    return $result;
  }
-/*
+
  function invalidEmail($email){
     $result;
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $result=true;
+      $result=false;
     }
  
     else{
-        $result=false;
+        $result=true;
     }
     return $result;
   }
-*/
+
   function emailExists($conn, $email){
    $sql = "SELECT * FROM utenti WHERE email=?;";
    $stmt = mysqli_stmt_init($conn);
@@ -32,6 +32,8 @@
     header("location: ../registrati.php?error=emailgiàesistente");
     exit();
    }
+
+   /* prevenzione da SQL Injection */
 
    mysqli_stmt_bind_param($stmt, "s", $email );
     mysqli_stmt_execute($stmt);

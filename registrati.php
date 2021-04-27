@@ -38,16 +38,55 @@
         </svg> <br>
         <h1 class="text-center" style="letter-spacing: 10px;">Registrati, <br> è semplice.</h1>
         <form id="formRegistrati" action="file php\registrati.inc.php" method="post">
-          <input id="nomeR"  name="nome" type="text" placeholder="NOME" required>
+          <input id="nomeR" name="nome" type="text" placeholder="NOME" required>
           <br>
-          <input id="cognomeR"  name="cognome" type="text" placeholder="COGNOME" required>
+          <input id="cognomeR" name="cognome" type="text" placeholder="COGNOME" required>
           <br>
-          <input id="emailR"  name="email" type="email" placeholder="EMAIL" required>
+          <input id="emailR" name="email" type="email" placeholder="EMAIL" required>
           <br>
-          <input id="passwordR"  name="password" type="password" placeholder="PASSWORD" required>
+          <input id="passwordR" name="password" type="password" placeholder="PASSWORD" required>
+          <br>
+          <input id="passwordR" name="passwordrpt" type="password" placeholder="RIPETI PASSWORD" required>
           <br>
           <input id="submitR" name="submit" type="submit" value="INVIA!">
-
+          <br>
+          <br>
+          <?php
+          /* stampa controllo errori */
+          if (isset($_GET['error'])) {
+            if ($_GET['error'] == 'campivuoti') {
+              echo "<div class='alert alert-danger' role='alert' 
+                      style='max-width: 470px;
+                      max-height: 200px;text-align:center; margin: 0 auto'>
+                      riempire tutti i campi!
+                      </div>";
+            } elseif ($_GET['error'] == 'emailnonvalida') {
+              echo "<div class='alert alert-danger' role='alert' 
+                      style='max-width: 470px;
+                      max-height: 200px;text-align:center; margin: 0 auto'>
+                      inserire una mail valida!
+                      </div>";
+            } elseif ($_GET['error'] == 'emailgièesistente') {
+              echo "<div class='alert alert-danger' role='alert' 
+                      style='max-width: 470px;
+                      max-height: 200px;text-align:center; margin: 0 auto'>
+                      email già esistente!
+                      </div>";
+            } elseif ($_GET['error'] == 'passswordnotmatch') {
+              echo "<div class='alert alert-danger' role='alert' 
+                      style='max-width: 470px;
+                      max-height: 200px;text-align:center; margin: 0 auto'>
+                      le password inserite non corrispondono!
+                      </div>";
+            } elseif ($_GET['error'] == 'nessunerrore') {
+              echo "<div class='alert alert-success' role='alert' 
+                      style='max-width: 470px;
+                      max-height: 300px;text-align:center; margin: 0 auto'>
+                      <h4 class='alert-heading'>Ben fatto!</h4>
+                      <p> Registrazione completata con successo </p>";
+            }
+          }
+          ?>
         </form>
 
       </div>
