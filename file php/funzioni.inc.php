@@ -73,3 +73,39 @@
   }
 
   /* FUNZIONI PER LOGIN */
+
+  function emptyInputLogin($username, $pwd){
+    $result;
+    if( empty($username) || empty($pwd)) {
+      $result=true;
+    }
+ 
+    else{
+        $result=false;
+    }
+    return $result;
+  }
+
+  function loginUser($conn,$username,$pwd){
+    $result = emailExists($conn,$username);
+    if ($result === false) {
+      header("location: ../login.php?error=nonregistrato");
+      exit();
+    }
+
+    $pwdHashed = $result['utentepassword'];
+    $checkPwd = password_verify($pwd, $pwdHashed);
+
+    if ($checkPwd === false) {
+      header("location: ../login.php?error=passworderrata");
+      exit();
+    }
+    elseif ($checkPwd === true) {
+      session_start();
+      $_SESSION["utentiID"] = $result["utentiID"];
+      $_SESSION["nome"] = $result["nome"];
+      header("location: ../lemiepiante.php");
+      exit();
+    }
+
+  }

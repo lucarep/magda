@@ -1,3 +1,9 @@
+<?php
+
+  session_start();
+
+?>
+
 <!doctype html>
 <html lang="it">
 
@@ -32,23 +38,29 @@
   </div>
   <!-- LANDING PAGE-->
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Magda</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          <a class="nav-link" href="login.php">Accedi</a>
-          <a class="nav-link" href="registrati.php">Registrati</a>
-          <a class="nav-link" href="contattaci.php">Contattaci</a>
-          <a class="nav-link" href="about_us.html">About us</a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Magda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <?php
+                    if (isset($_SESSION["utentiID"])) {
+                        echo "<a class='nav-link' href='lemiepiante.php'>Le mie piante</a>
+                  <a class='nav-link' href='file php\logout.inc.php'>Logout</a>";
+                    } else {
+                        echo "<a class='nav-link' href='login.php'>Accedi</a>
+                  <a class='nav-link' href='registrati.php'>Registrati</a>";
+                    }
+                    ?>
+                    <a class="nav-link" href="contattaci.php">Contattaci</a>
+                    <a class="nav-link" href="about_us.php">About us</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
   <div class="container-fluid mx-0 my-3" style="background-color: #faf3e0; color: #303926;">
     <div class="row">
       <div class="col-lg">
