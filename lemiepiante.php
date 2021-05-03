@@ -12,8 +12,9 @@ session_start();
     <title> Magda </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- IL CODICE PHP RISOLVE PROBLEMI DI CACHE -->
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
-    <link href="style.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -45,91 +46,6 @@ session_start();
             </div>
         </div>
     </nav>
-    <style type="text/css">
-        .bgimg {
-            height: 300px;
-            width: 100%;
-            background-image: url("pictures/thomas-verbruggen-5A06OWU6Wuc-unsplash.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .modal-dialog {
-            background-color: #c9c0b9;
-            border-color: #303926;
-        }
-
-        .modal-content {
-            background-color: #FAF3E0;
-        }
-
-        .modal-header {
-            border-color: #303926;
-            background-color: #303926;
-            color: white;
-        }
-
-        .modal-footer {
-            border-color: #303926;
-        }
-
-        #formLMP {
-            position: relative;
-            margin: 25px 0 25px 0;
-            text-align: center;
-            letter-spacing: 10px;
-        }
-
-        #nicknameLMP {
-            font-size: 0.875em;
-            width: 470px;
-            height: 50px;
-            padding: 0px 15px 0px 15px;
-            background: transparent;
-            outline: none;
-            color: #303926;
-            border: solid 1px #303926;
-        }
-
-        #nicknameLMP:hover {
-            background: #303926;
-            color: #e2dedb;
-        }
-
-        #specieLMP {
-            font-size: 0.875em;
-            width: 470px;
-            height: 50px;
-            padding: 0px 15px 0px 15px;
-            background: transparent;
-            outline: none;
-            color: #303926;
-            border: solid 1px #303926;
-        }
-
-        #specieLMP:hover {
-            background: #303926;
-            color: #e2dedb;
-        }
-
-        #submitLMP {
-            font-size: 0.875em;
-            width: 470px;
-            height: 50px;
-            padding: 0px 15px 0px 15px;
-            margin: -5px 0px 0px 0px;
-            background: transparent;
-            outline: none;
-            cursor: pointer;
-            color: #303926;
-            border: solid 1px #303926;
-        }
-
-        #submitLMP:hover {
-            background: #303926;
-            color: #e2dedb;
-        }
-    </style>
     <div class="container-fluid bgimg">
         <?php
         echo "<h3 style='background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;

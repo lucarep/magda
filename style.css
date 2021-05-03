@@ -546,6 +546,33 @@ p.pAU {
     LE MIE PIANTE
 **********************/
 
+.bgimg {
+    height: 300px;
+    width: 100%;
+    background-image: url("pictures/thomas-verbruggen-5A06OWU6Wuc-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-dialog {
+    background-color: #c9c0b9;
+    border-color: #303926;
+}
+
+.modal-content {
+    background-color: #faf3e0;
+}
+
+.modal-header {
+    border-color: #303926;
+    background-color: #303926;
+    color: white;
+}
+
+.modal-footer {
+    border-color: #303926;
+}
+
 #formLMP {
     position: relative;
     margin: 25px 0 25px 0;
@@ -562,7 +589,6 @@ p.pAU {
     outline: none;
     color: #303926;
     border: solid 1px #303926;
-    border-bottom: none;
 }
 
 #nicknameLMP:hover {
@@ -603,4 +629,3 @@ p.pAU {
     background: #303926;
     color: #e2dedb;
 }
-
