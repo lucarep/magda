@@ -30,15 +30,15 @@
     transition: 1s;
 }
 
-.logo-header{
+.logo-header {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: #c9c0b9;
 }
 
-.logo{
+.logo {
     position: relative;
     display: inline-block;
     bottom: -20px;
@@ -52,7 +52,7 @@
     transition: ease-in-out 0.5s;
 }
 
-.logo.fade{
+.logo.fade {
     bottom: 150px;
     opacity: 0;
     transition: ease-in-out 0.5s;
@@ -541,3 +541,66 @@ p.pAU {
     background: #303926;
     color: #e2dedb;
 }
+
+/**********************
+    LE MIE PIANTE
+**********************/
+
+#formLMP {
+    position: relative;
+    margin: 25px 0 25px 0;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+#nicknameLMP {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+    border-bottom: none;
+}
+
+#nicknameLMP:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#specieLMP {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    background: transparent;
+    outline: none;
+    color: #303926;
+    border: solid 1px #303926;
+}
+
+#specieLMP:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
+#submitLMP {
+    font-size: 0.875em;
+    width: 470px;
+    height: 50px;
+    padding: 0px 15px 0px 15px;
+    margin: -5px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    color: #303926;
+    border: solid 1px #303926;
+}
+
+#submitLMP:hover {
+    background: #303926;
+    color: #e2dedb;
+}
+
