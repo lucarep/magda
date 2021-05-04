@@ -16,7 +16,7 @@
 <body id="bodyR" background="pictures\scott-webb-C6oPXOatFD8-unsplash.jpg">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Magda</a>
+      <a class="navbar-brand" href="index.php">Magda</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -103,7 +103,7 @@
 
     <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
       © 2021 Proudly made in Italy
-      <a class="text-light" href="index.html">Magda</a>
+      <a class="text-light" href="index.php">Magda</a>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>

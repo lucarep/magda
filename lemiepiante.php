@@ -7,15 +7,14 @@ $dBUsername = "root";
 $dBPassword = "";
 $dBName = "dbMagda";
 
-$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName );
+$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 
-if (!$conn){
- die("Connessione non riuscita: " . mysqli_connect_error());
-
+if (!$conn) {
+    die("Connessione non riuscita: " . mysqli_connect_error());
 }
 
-$sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID;";
-$result = mysqli_query($conn,$sql);
+$sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID WHERE lmp.utentiID=$_SESSION[utentiID];";
+$result = mysqli_query($conn, $sql);
 $process = $result = mysqli_fetch_array($result);
 $somma = $process[0];
 
@@ -36,14 +35,14 @@ $somma = $process[0];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
-   
-   
+
+
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Magda</a>
+            <a class="navbar-brand" href="index.php">Magda</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -66,21 +65,21 @@ $somma = $process[0];
         </div>
     </nav>
 
-    
-   
+
+
     <div class="container-fluid bgimg">
         <?php
         echo "<h3 class='title style='background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;
                 -webkit-text-fill-color: transparent; font-size: clamp(1rem, 2vw + 3rem, 6rem); text-align:center; padding-top: 25px;'>
                 Bentornata/o $_SESSION[nome] !</h3>";
-                
+
         ?>
 
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 20px;">
             <div class="col-lg">
-            <?php
+                <?php
                 echo "<h4 style='color: #303926;'> Hai attualmente: $somma pianta/e </h4>";
                 ?>
             </div>
@@ -131,27 +130,27 @@ $somma = $process[0];
             </div>
         </div>
         <div class="row">
-                <?php
-                    if (isset($_GET['error'])) {
-                    
-                        if ($_GET['error'] == 'nessunerrore') {
-                         echo "<div class='alert alert-success alert-dismissable' role='alert' 
+            <?php
+            if (isset($_GET['error'])) {
+
+                if ($_GET['error'] == 'nessunerrore') {
+                    echo "<div class='alert alert-success alert-dismissable' role='alert' 
                                  style='max-width: 470px;
                                  max-height: 300px;text-align:center; margin: 0 auto'>
                                  <h4 class='alert-heading'>Tutto ok!</h4>
                                  <p> Hai correttamente inserito una nuova pianta. </p>
                                  <a href='#' style='text-decoration:none;color:#303926'class='close' data-dismiss='alert' aria-label='close'>CHIUDI</a>
                                 </div>";
-                       }
-                   }
-                ?>
+                }
+            }
+            ?>
         </div>
     </div>
     <hr>
 
     <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
         © 2021 Proudly made in Italy:
-        <a class="text-light" href="index.html">Magda</a>
+        <a class="text-light" href="index.php">Magda</a>
     </div>
 
 </body>
