@@ -15,12 +15,10 @@ if (!$conn){
 }
 
 $sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID;";
-$stmt = mysqli_stmt_init($conn);
-$row = mysqli_fetch_assoc($sql);
-$somma = $row['somma'];
+$result = mysqli_query($conn,$sql);
+$process = $result = mysqli_fetch_array($result);
+$somma = $process[0];
 
-  
-  
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +73,7 @@ $somma = $row['somma'];
         echo "<h3 class='title style='background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;
                 -webkit-text-fill-color: transparent; font-size: clamp(1rem, 2vw + 3rem, 6rem); text-align:center; padding-top: 25px;'>
                 Bentornata/o $_SESSION[nome] !</h3>";
+                
         ?>
 
     </div>
@@ -82,7 +81,7 @@ $somma = $row['somma'];
         <div class="row" style="margin-top: 20px;">
             <div class="col-lg">
             <?php
-                echo "<h4 style='color: #303926;'> Hai attualmente: $somma </h4>";
+                echo "<h4 style='color: #303926;'> Hai attualmente: $somma pianta/e </h4>";
                 ?>
             </div>
             <div class="col-lg">
@@ -130,6 +129,22 @@ $somma = $row['somma'];
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+                <?php
+                    if (isset($_GET['error'])) {
+                    
+                        if ($_GET['error'] == 'nessunerrore') {
+                         echo "<div class='alert alert-success alert-dismissable' role='alert' 
+                                 style='max-width: 470px;
+                                 max-height: 300px;text-align:center; margin: 0 auto'>
+                                 <h4 class='alert-heading'>Tutto ok!</h4>
+                                 <p> Hai correttamente inserito una nuova pianta. </p>
+                                 <a href='#' style='text-decoration:none;color:#303926'class='close' data-dismiss='alert' aria-label='close'>CHIUDI</a>
+                                </div>";
+                       }
+                   }
+                ?>
         </div>
     </div>
     <hr>
