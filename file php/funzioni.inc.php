@@ -109,3 +109,21 @@
     }
 
   }
+
+  /* funzioni le mie piante*/
+
+  function addPlant($conn, $id, $specie, $nickname, $data){
+    $sql = "INSERT INTO lemiepiante(utentiID, specie, nickname, inizio) VALUES (?,?,?,?);";
+    $stmt = mysqli_stmt_init($conn);
+ 
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+     header("location: ../lemiepiante.php?error=errore");
+     exit();
+    }
+    mysqli_stmt_bind_param($stmt, "isss", $id, $specie, $nickname, $data );
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt); 
+    
+    header("location: ../lemiepiante.php?error=nessunerrore");
+    exit();
+  }
