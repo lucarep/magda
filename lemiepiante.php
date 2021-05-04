@@ -2,6 +2,25 @@
 
 session_start();
 
+$serverName = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "dbMagda";
+
+$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName );
+
+if (!$conn){
+ die("Connessione non riuscita: " . mysqli_connect_error());
+
+}
+
+$sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID;";
+$stmt = mysqli_stmt_init($conn);
+$row = mysqli_fetch_assoc($sql);
+$somma = $row['somma'];
+
+  
+  
 ?>
 
 <!DOCTYPE html>
@@ -55,14 +74,16 @@ session_start();
         <?php
         echo "<h3 class='title style='background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;
                 -webkit-text-fill-color: transparent; font-size: clamp(1rem, 2vw + 3rem, 6rem); text-align:center; padding-top: 25px;'>
-                Bentornata/o $_SESSION[utentiID] !</h3>";
+                Bentornata/o $_SESSION[nome] !</h3>";
         ?>
 
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 20px;">
             <div class="col-lg">
-                <h4 style="color: #303926;">Hai attualmente: 0 piante </h4>
+            <?php
+                echo "<h4 style='color: #303926;'> Hai attualmente: $somma </h4>";
+                ?>
             </div>
             <div class="col-lg">
                 <!-- Button trigger modal -->
