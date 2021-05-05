@@ -19,20 +19,6 @@ $result = mysqli_query($conn, $sql);
 $process = $result = mysqli_fetch_array($result);
 $somma = $process[0];
 
-/* RESTITUISCE INFO PIANTE */
-
-$query = "SELECT lemiepiante.specie, lemiepiante.nickname, lemiepiante.inizio, lemiepiante.intervallo
-                FROM lemiepiante
-                WHERE lemiepiante.utentiID = $_SESSION[utentiID]";
-$result2 = $conn->query($query);
-$data = array();
-
-while ($row = $result2->fetch_assoc()) {
-    array_push($data, $row);
-}
-$json = json_encode($data);
-echo ($json);
-
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +41,13 @@ echo ($json);
 </head>
 
 <body>
+    <style>
+        div.card {
+            float: left;
+            margin: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Magda</a>
@@ -162,6 +155,69 @@ echo ($json);
         </div>
     </div>
     <hr>
+    <div>Inserisci nickname:
+        <input id="ricerca" onkeyup="doKeyUp()">
+    </div>
+    <div class="cards">
+
+    </div>
+
+
+    <script src="JS\countdown.js"></script>
+    <script>
+        function doKeyUp() {
+            var value = document.getElementById('ricerca').value;
+            console.log(value);
+
+            var xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.open('POST', 'fetch.php', true);
+
+            xmlHttp.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+
+            xmlHttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    console.log(data);
+                    var cards = document.querySelector('.cards');
+                    cards.innerHTML = '';
+                    data.forEach(element => {
+                        var card = `<div class="card" style="width: 15rem; height:20rem;">
+                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title">` + element.nickname + ` </h5>
+                                    <h5 class="card-title">` + element.specie + `</h5>
+                                    <p class="`+ element.specie +`"></p>
+                                  </div>
+                                  </div>`;
+
+                        cards.innerHTML += card;
+
+                        var date = new Date(element.inizio);
+                        date.setDate(date.getDate() + element.intervallo);
+
+                        $(".cards").on('mouseenter', ".card", function() {
+                            $("."+element.specie).countdown(date, function(event) {
+                                $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
+                            });
+                        })
+
+                    });
+
+
+
+                }
+            }
+
+            xmlHttp.send("value=" + value);
+
+
+        }
+
+        window.onload = doKeyUp();
+    </script>
+
+
 
     <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
         © 2021 Proudly made in Italy:
