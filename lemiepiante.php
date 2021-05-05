@@ -13,10 +13,25 @@ if (!$conn) {
     die("Connessione non riuscita: " . mysqli_connect_error());
 }
 
+/* CALCOLO NUMERO PIANTE */
 $sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID WHERE lmp.utentiID=$_SESSION[utentiID];";
 $result = mysqli_query($conn, $sql);
 $process = $result = mysqli_fetch_array($result);
 $somma = $process[0];
+
+/* RESTITUISCE INFO PIANTE */
+
+$query = "SELECT lemiepiante.specie, lemiepiante.nickname, lemiepiante.inizio, lemiepiante.intervallo
+                FROM lemiepiante
+                WHERE lemiepiante.utentiID = $_SESSION[utentiID]";
+$result2 = $conn->query($query);
+$data = array();
+
+while ($row = $result2->fetch_assoc()) {
+    array_push($data, $row);
+}
+$json = json_encode($data);
+echo ($json);
 
 ?>
 
