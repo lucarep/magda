@@ -19,6 +19,23 @@ $result = mysqli_query($conn, $sql);
 $process = $result = mysqli_fetch_array($result);
 $somma = $process[0];
 
+/* ELIMNA PIANTA E RICALCOLO TOTALE */
+if (isset($_POST["delete"])) {
+
+    $id = $_POST["delete"];
+    $query = "DELETE FROM lemiepiante WHERE lemiepiante.pianteID = $id";
+    $result = mysqli_query($conn, $query);
+    $sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS u ON u.utentiID=lmp.utentiID WHERE lmp.utentiID=$_SESSION[utentiID];";
+    $result = mysqli_query($conn, $sql);
+    $process = $result = mysqli_fetch_array($result);
+    $somma = $process[0];
+}
+
+if (isset($_POST["annaffiata"])) {
+
+    $data = date("Y/m/d");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +92,48 @@ $somma = $process[0];
 
 
 
-    <div class="container-fluid bgimg">
+    <div class="container-fluid bgimg" style="text-align: center;">
+        <style>
+            .greetings {
+                font-size: 50px;
+                text-align: center;
+                padding-top: 10px;
+                letter-spacing: 3px;
+                color: #303926;
+                font-weight: 1000;
+            }
+        </style>
+        <br>
         <?php
-        echo "<h3 class='title style='background: linear-gradient(to right, #134E5E 0%, #71B280 100%);-webkit-background-clip: text;
-                -webkit-text-fill-color: transparent; font-size: clamp(1rem, 2vw + 3rem, 6rem); text-align:center; padding-top: 25px;'>
-                Bentornata/o $_SESSION[nome] !</h3>";
+        $hour = date("G");
+
+        if ($hour > 0 && $hour < 24) {
+            if ($hour >= 3 && $hour < 12) {
+                echo "
+                <svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' fill='#303926' class='bi bi-asterisk'
+                viewBox='0 0 16 16'>
+                <path
+                d='M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z' />
+                </svg>
+                <h3 class='greetings'>Buongiorno " . $_SESSION['nome'] . "!</h3>";
+            } else if ($hour >= 12 && $hour < 17) {
+                echo "
+                <svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' fill='#303926' class='bi bi-asterisk'
+                viewBox='0 0 16 16'>
+                <path
+                d='M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z' />
+                </svg>
+                <h3 class='greetings'>Buon pomeriggio " . $_SESSION['nome'] . "!</h3>";
+            } else {
+                echo "
+                <svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' fill='#303926' class='bi bi-asterisk'
+                viewBox='0 0 16 16'>
+                <path
+                d='M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z' />
+                </svg>
+                <h3 class='greetings'>Buonasera " . $_SESSION['nome'] . "!</h3>";
+            }
+        }
 
         ?>
 
@@ -155,66 +209,70 @@ $somma = $process[0];
         </div>
     </div>
     <hr>
-    <div>Inserisci nickname:
-        <input id="ricerca" onkeyup="doKeyUp()">
+    <div class="container-fluid">
+        <div class="cards">
+
+        </div>
     </div>
-    <div class="cards">
 
-    </div>
-
-
-    <script src="JS\countdown.js"></script>
     <script>
-        function doKeyUp() {
-            var value = document.getElementById('ricerca').value;
-            console.log(value);
+        $(document).ready(function() {
 
-            var xmlHttp = new XMLHttpRequest();
+            /*$(".card-text").countdown('2022/01/01', function(event) {
+                        alert("ciao");
+                        $(this).html(event.strftime('%d giorni %H:%M:%S'));
+                    });*/
 
-            xmlHttp.open('POST', 'fetch.php', true);
+            MyFunctions = {
+                waterSchedule: function(start, days) {
+                    date = new Date(start);
+                    days = Number(days);
+                    date.setDate(date.getDate() + days);
+                    today = new Date();
+                    console.log(date);
+                    if (today.getDate() == date.getDate()) {
+                        $(".scaduto").removeAttr("disabled");
+                        return "SCADUTO";
+                    }
+                    month = '' + (date.getMonth() + 1),
+                        day = '' + date.getDate(),
+                        year = date.getFullYear();
+                    console.log(year + " " + month + " " + day);
+                    if (month.length < 2)
+                        month = '0' + month;
+                    if (day.length < 2)
+                        day = '0' + day;
 
-            xmlHttp.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+                    var timer = [day, month, year].join('/');
+                    console.log(timer);
 
-            xmlHttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = JSON.parse(this.responseText);
-                    console.log(data);
-                    var cards = document.querySelector('.cards');
-                    cards.innerHTML = '';
-                    data.forEach(element => {
-                        var card = `<div class="card" style="width: 15rem; height:20rem;">
+                    return timer;
+                }
+
+
+
+            }
+            $.getJSON("fetch.php", function(data, status) {
+                /*alert("Dati ricevuti: " + data + "\nStatus" +
+                    status);*/
+                $(".cards").html("");
+                $.each(data, function(i, field) {
+                    console.log(field.specie, field.nickname, field.inizio, field.pianteID);
+                    var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
                                   <img src="avatar.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <h5 class="card-title">` + element.nickname + ` </h5>
-                                    <h5 class="card-title">` + element.specie + `</h5>
-                                    <p class="`+ element.specie +`"></p>
-                                  </div>
-                                  </div>`;
-
-                        cards.innerHTML += card;
-
-                        var date = new Date(element.inizio);
-                        date.setDate(date.getDate() + element.intervallo);
-
-                        $(".cards").on('mouseenter', ".card", function() {
-                            $("."+element.specie).countdown(date, function(event) {
-                                $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
-                            });
-                        })
-
-                    });
-
-
-
-                }
-            }
-
-            xmlHttp.send("value=" + value);
-
-
-        }
-
-        window.onload = doKeyUp();
+                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
+                                    <p "class="card-text"> <b> Da annaffiare: <br>` + MyFunctions.waterSchedule(field.inizio, field.intervallo) + `</b></p>                           
+                                    <form action='lemiepiante.php' method="POST">
+                                        <button name="annaffiata" type="submit" class="btn btn-primary scaduto" disabled>Annaffiata</button>  
+                                        <button name="delete" type="submit" class="btn btn-danger" style=" border-radius: 25px" value="` + field.pianteID + `">Elimina</button>
+                                    </form>   
+                                 </div>`;
+                    $(".cards").append(card);
+                });
+            });
+        });
     </script>
 
 
@@ -223,6 +281,8 @@ $somma = $process[0];
         © 2021 Proudly made in Italy:
         <a class="text-light" href="index.php">Magda</a>
     </div>
+
+
 
 </body>
 

@@ -87,10 +87,16 @@ h3 {
 
 h4 {
     font-size: 35px;
+    color: #303926;
 }
 
 h5 {
     font-family: "Roxbo Bold";
+    color: #303926;
+}
+
+p {
+    color: #303926;
 }
 
 hr {
@@ -629,4 +635,3 @@ p.pAU {
     background: #303926;
     color: #e2dedb;
 }
-

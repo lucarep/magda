@@ -2,7 +2,6 @@
 
 session_start();
 
-header('Access-Control-Allow-Origin: *');
 
 $serverName = "localhost";
 $dBUsername = "root";
@@ -17,18 +16,18 @@ if (!$conn) {
 
 /* RESTITUISCE INFO PIANTE */
 
-    $query = "SELECT lemiepiante.specie, lemiepiante.nickname, lemiepiante.inizio, lemiepiante.intervallo
+$query = "SELECT lemiepiante.specie, lemiepiante.nickname, lemiepiante.inizio, lemiepiante.intervallo, lemiepiante.pianteID
                 FROM lemiepiante
                 WHERE lemiepiante.utentiID = $_SESSION[utentiID]
                 ORDER BY lemiepiante.nickname";
-    $result = $conn->query($query);
-    $data = array();
+$result = $conn->query($query);
+$data = array();
 
-    while ($row = $result->fetch_assoc()) {
-        array_push($data, $row);
-    }
-    $json = json_encode($data);
-    echo ($json);
+while ($row = $result->fetch_assoc()) {
+    array_push($data, $row);
+}
+$json = json_encode($data);
+echo ($json);
 
-    $conn->close();
 
+?>
