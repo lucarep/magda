@@ -635,3 +635,16 @@ p.pAU {
     background: #303926;
     color: #e2dedb;
 }
+
+
+.loader{
+    height: 10px;
+    background-color: #303926;
+    position: absolute;
+  }
+  
+.content{
+    height: 100vh;
+    width: 100%;
+    display: none;
+  }
