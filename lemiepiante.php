@@ -61,7 +61,7 @@ if (isset($_POST["delete"])) {
             div.card {
                 float: left;
                 margin: 10px;
-                margin-bottom: 20px;
+                padding: 0px;
             }
         </style>
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -138,7 +138,7 @@ if (isset($_POST["delete"])) {
 
         </div>
         <div class="container-fluid">
-            <div class="row" style="margin-top: 20px;">
+            <div class="row" style="margin-top: 20px; margin: 20px;">
                 <div class="col-lg">
                     <?php
                     echo "<h4 style='color: #303926;'> Hai attualmente: $somma pianta/e </h4>";
@@ -242,9 +242,20 @@ if (isset($_POST["delete"])) {
         </div>
         <hr>
         <div class="container-fluid">
-            <div class="cards">
-
-            </div>
+           
+                <div class="scaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;"> 
+                    <h1 style="color: #f6eedf;margin-top: 20px;">SCADUTO:</h1>
+                </div>
+                
+                <div class="oggi row" style="background-color: #303926; border-radius:25px; margin: 20px;"> 
+                    <h1 style="color: #bfcba8;margin-top: 20px;">OGGI:</h1>
+                </div>
+                
+                <div class="nonscaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;">
+                    <h1 style="color: #f6eedf;margin-top: 20px;">TRA POCO:</h1>
+                </div>
+                <br>
+            
         </div>
 
         <script>
@@ -258,9 +269,11 @@ if (isset($_POST["delete"])) {
                         date.setDate(date.getDate() + days);
                         today = new Date();
                         console.log(date);
-                        if (today.getDate() >= date.getDate()) {
-                            $(".scaduto").removeAttr("disabled");
+                        if (today.getDate() > date.getDate()) {
                             return "SCADUTO";
+                        }
+                        else if(today.getDate() == date.getDate()){
+                            return "OGGI";
                         }
                         month = '' + (date.getMonth() + 1),
                             day = '' + date.getDate(),
@@ -281,23 +294,50 @@ if (isset($_POST["delete"])) {
 
                 }
                 $.getJSON("fetch.php", function(data, status) {
-                    /*alert("Dati ricevuti: " + data + "\nStatus" +
-                        status);*/
-                    $(".cards").html("");
                     $.each(data, function(i, field) {
-                        console.log(field.specie, field.nickname, field.inizio, field.pianteID);
-                        var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
+                        var final_date = MyFunctions.waterSchedule(field.inizio, field.intervallo);
+                        if (final_date == "SCADUTO") {
+                            var card = `<div class="card" style="width: 15rem; margin-bottom:80px">
                                   <img src="avatar.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
                                     <h4 class="card-title">` + field.nickname + `</h4>
                                     <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
-                                    <p "class="card-text"> <b> Da annaffiare: <br>` + MyFunctions.waterSchedule(field.inizio, field.intervallo) + `</b></p>                           
+                                    <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
                                     <form action='lemiepiante.php' method="POST">
                                         <button name="annaffiata" type="submit" class="btn btn-primary" value="` + field.pianteID + `">Annaffiata</button>  
                                         <button name="delete" type="submit" class="btn btn-danger" style=" border-radius: 25px" value="` + field.pianteID + `">Elimina</button>
                                     </form>   
                                  </div>`;
-                        $(".cards").append(card);
+                            $(".scaduto").append(card);
+                        }
+                        else if(final_date == "OGGI"){
+                            var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
+                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
+                                    <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
+                                    <form action='lemiepiante.php' method="POST">
+                                        <button name="annaffiata" type="submit" class="btn btn-primary" value="` + field.pianteID + `">Annaffiata</button>  
+                                        <button name="delete" type="submit" class="btn btn-danger" style=" border-radius: 25px" value="` + field.pianteID + `">Elimina</button>
+                                    </form>   
+                                 </div>`;
+                            $(".oggi").append(card);
+                        }
+                        else{
+                            var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
+                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
+                                    <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
+                                    <form action='lemiepiante.php' method="POST">  
+                                        <button name="delete" type="submit" class="btn btn-danger" style=" border-radius: 25px" value="` + field.pianteID + `">Elimina</button>
+                                    </form>   
+                                 </div>`;
+                            $(".nonscaduto").append(card);
+                            
+                        }
                     });
                 });
             });
@@ -348,10 +388,7 @@ if (isset($_POST["delete"])) {
 
 
 
-        <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
-            © 2021 Proudly made in Italy:
-            <a class="text-light" href="index.php">Magda</a>
-        </div>
+        
 
 
     </div>
