@@ -44,6 +44,7 @@ session_start();
           <?php
           if (isset($_SESSION["utentiID"])) {
             echo "<a class='nav-link' href='lemiepiante.php'>Le mie piante</a>
+                  <a class='nav-link' href='obiettivi.php'>Obiettivi</a>
                   <a class='nav-link' href='file php\logout.inc.php'>Logout</a>";
           } else {
             echo "<a class='nav-link' href='login.php'>Accedi</a>
@@ -123,13 +124,29 @@ session_start();
       </div>
     </div>
   </div>
+  <div class="container-fluid my-3" style="background-color: #faf3e0; color: #303926">
+    <h1 class="text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+        <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+      </svg> <br>
+      E Divertente
+    </h1>
+    <div class="row roundedDiv">
+      <div class="col-lg">
+        <h4>Nel sito è presente un sistema di obiettivi, divertiti a sbloccarli tutti </h4>
+      </div>
+      <div class="col-lg">
+        <h4>Immagine da inserire</h4>
+      </div>
+    </div>
+  </div>
   <div class="container-fluid mx-0" style="color: #F6EEDF">
     <div class="row roundedDiv">
       <div class="col-sm">
         <img src="pictures/pexels-valentin-antonucci-1275393.jpg" class="img-responsive Img">
       </div>
       <div class="col-sm">
-        <h3 class="text-left" ><em>"Quello che facciamo <br> è soltanto una goccia nell'oceano. <br>
+        <h3 class="text-left"><em>"Quello che facciamo <br> è soltanto una goccia nell'oceano. <br>
             Ma se non ci fosse quella goccia <br> all'oceano mancherebbe."</em></h3>
         <hr class="hrCard">
         <p style="font-size: calc(15px + 0.2rem);">L'iperidratazione non solo danneggia le tue piante <br>
@@ -157,7 +174,7 @@ session_start();
         <ul style="text-align: left;">
           <li> aggiungi quante piante vuoi </li>
           <li> dai un nickname alle tue piante </li>
-          <li> aggiungi una foto personalizzata </li>
+          <li> sistema di obiettivi </li>
           <li> schedule dinamico in base alle stagioni </li>
           <li> e tanto altro ancora </li>
         </ul>

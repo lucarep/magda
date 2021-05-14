@@ -18,6 +18,7 @@ $sql = "SELECT distinct COUNT(*) as somma FROM lemiepiante AS lmp JOIN utenti AS
 $result = mysqli_query($conn, $sql);
 $process = $result = mysqli_fetch_array($result);
 $somma = $process[0];
+$_SESSION["numpiante"] = $somma;
 
 /* ELIMNA PIANTA E RICALCOLO TOTALE */
 if (isset($_POST["delete"])) {
@@ -75,7 +76,6 @@ if (isset($_POST["delete"])) {
                 border-top-left-radius: 25px;
                 border-top-right-radius: 25px;
             }
-
         </style>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
@@ -89,7 +89,8 @@ if (isset($_POST["delete"])) {
                         <?php
                         if (isset($_SESSION["utentiID"])) {
                             echo "<a class='nav-link active'aria-current='page' href='lemiepiante.php'>Le mie piante</a>
-                  <a class='nav-link' href='file php\logout.inc.php'>Logout</a>";
+                            <a class='nav-link' href='obiettivi.php'>Obiettivi</a>
+                            <a class='nav-link' href='file php\logout.inc.php'>Logout</a>";
                         } else {
                             echo "<a class='nav-link' href='login.php'>Accedi</a>
                   <a class='nav-link' href='registrati.php'>Registrati</a>";
@@ -154,7 +155,7 @@ if (isset($_POST["delete"])) {
             <div class="row" style="margin-top: 20px; margin: 20px;">
                 <div class="col-lg">
                     <?php
-                    echo "<h4 style='color: #303926;'> Hai attualmente: $somma pianta/e </h4>";
+                    echo "<h4 style='color: #303926;'> Hai attualmente: $somma pianta/e 🌱</h4>";
                     ?>
                 </div>
                 <div class="col-lg">
@@ -240,6 +241,10 @@ if (isset($_POST["delete"])) {
                                  <p> La data è stata aggiornata! </p>
                                  <a href='#' style='text-decoration:none;color:#303926'class='close' data-dismiss='alert' aria-label='close'>CHIUDI</a>
                                 </div>";
+                        $query3 = "UPDATE haobiettivi
+                                SET hainnaffiato = hainnaffiato + 1
+                                WHERE utente = $_SESSION[utentiID];";
+                        $result3 = mysqli_query($conn, $query3);
                     } else {
                         echo "<div class='alert alert-danger alert-dismissable' role='alert' 
                                  style='max-width: 470px;

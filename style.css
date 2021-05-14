@@ -688,3 +688,15 @@ p.pAU {
     width: 100%;
     display: none;
 }
+
+/**********************
+        OBIETTIVI
+**********************/
+
+.bgObiettivi {
+    height: 300px;
+    width: 100%;
+    background-image: url("pictures/scott-webb-hDyO6rr3kqk-unsplash.jpg");
+    background-size: cover;
+    background-position: 50% 45%;
+}

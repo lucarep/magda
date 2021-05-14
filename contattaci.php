@@ -64,6 +64,7 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
             <?php
             if (isset($_SESSION["utentiID"])) {
               echo "<a class='nav-link' href='lemiepiante.php'>Le mie piante</a>
+                    <a class='nav-link' href='obiettivi.php'>Obiettivi</a>
                   <a class='nav-link' href='file php\logout.inc.php'>Logout</a>";
             } else {
               echo "<a class='nav-link' href='login.php'>Accedi</a>
