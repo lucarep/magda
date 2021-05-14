@@ -71,7 +71,7 @@ body {
 h1 {
     font-size: calc(1vw + 2rem);
     font-family: "Roxbo Bold";
-    text-transform: uppercase;
+    
 }
 
 h2 {
@@ -83,6 +83,7 @@ h2 {
 h3 {
     font-size: 42px;
     font-family: "Roxbo Bold";
+    color: #303926;
 }
 
 h4 {
@@ -138,12 +139,38 @@ li {
     margin: 0 auto;
     margin-bottom: 20px;
     margin-top: 10px;
+    border: 3px solid #303926;
     background-color: #c9c0b9;
+    border-radius: 25px;
 }
 
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-img-top {
+    object-fit: cover;
+    border-bottom: 3px solid #303926;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.hrCard {
+    border: none;
+    border-top: 3px double #303926;
+    color: #303926;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+.hrCard:after {
+    background: #c9c0b9;
+    content: "§";
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
 }
 
 .btn-primary,
@@ -158,13 +185,27 @@ li {
 .Img {
     display: block;
     width: 100%;
-    height: sectionto;
+    border-radius: 25px;
+}
+
+.carousel-inner {
+    width: 98%;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: 3px solid #303926;
 }
 
 .carousel-caption {
     /*background-color: #c9c0b9 !important;*/
     color: white;
     border-radius: 25px;
+}
+
+.roundedDiv {
+    background-color: #c9c0b9;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
 }
 
 #quote {
@@ -636,15 +677,14 @@ p.pAU {
     color: #e2dedb;
 }
 
-
-.loader{
+.loader {
     height: 10px;
     background-color: #303926;
     position: absolute;
-  }
-  
-.content{
+}
+
+.content {
     height: 100vh;
     width: 100%;
     display: none;
-  }
+}

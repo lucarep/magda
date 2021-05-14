@@ -51,7 +51,7 @@ session_start();
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
           <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
         </svg> <br>
-        <h1 class="text-center " style="letter-spacing: 10px;">Accedi</h1>
+        <h1 class="text-center " style="letter-spacing: 10px;">ACCEDI</h1>
         <p style="letter-spacing: 5px;"> Inserisci le credenziali qui sotto</p>
         <form id="formLogin" action="file php\login.inc.php" method="post">
           <input id="emailL" name="email" type="email" placeholder="EMAIL" required>

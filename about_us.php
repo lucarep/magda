@@ -46,7 +46,7 @@ session_start();
         <img class="sectionAU" src="pictures/sky.jpg" id="background">
         <img class="sectionAU" src="pictures/mountain.png" id="mountain">
         <img class="sectionAU" src="pictures/forest.png" id="forest">
-        <h1 id="textAU" style="letter-spacing: 5px;"> Scopri di più su di noi </h1>
+        <h1 id="textAU" style="letter-spacing: 5px;"> SCOPRI DI PIU' SU DI NOI </h1>
     </section>
     <script>
         let background = document.getElementById("background");
@@ -64,28 +64,33 @@ session_start();
         })
     </script>
     <div class="container-fluid mx-0 my-3" style="color: #303926; text-align: center;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-        </svg>
-        <h1>Chi siamo</h1>
-        <p style="font-size: 25px;">Dietro lo sviluppo di Magda ci sono due studenti universitari: Chiara Massari e Luca
-            Repechini.
-            Entrambi frequentiamo la facoltà di ingegneria informatica alla Sapienza, l'idea comune che ci ha condotto
-            allo sviluppo di questa web-app
-            è stata quella di fare qualcosa che non tenesse solo conto dell'utente, ma anche del mondo che lo circonda,
-            dalle piante dentro casa fino all'intero pianeta.
-            Annaffiare le piante può sembrarci un'azione di poco conto, ma teniamo sempre a mente che anche
-            un battito d'ali di una farfalla può provocare un uragano.
-        </p>
+        <div class="row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+            </svg>
+            <h1>Chi Siamo</h1>
+            <p style="font-size: 25px;">Dietro lo sviluppo di Magda ci sono due studenti universitari: Chiara Massari e Luca
+                Repechini.
+                Entrambi frequentiamo la facoltà di ingegneria informatica alla Sapienza, l'idea comune che ci ha condotto
+                allo sviluppo di questa web-app
+                è stata quella di fare qualcosa che non tenesse solo conto dell'utente, ma anche del mondo che lo circonda,
+                dalle piante dentro casa fino all'intero pianeta.
+                Annaffiare le piante può sembrarci un'azione di poco conto, ma teniamo sempre a mente che anche
+                un battito d'ali di una farfalla può provocare un uragano.
+            </p>
+        </div>
+
     </div>
     <hr>
     <div class="container-fluid mx-0 my-3" style="color: #303926; text-align: center;">
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
             <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
         </svg>
-        <h1>Perchè il nome Magda</h1>
+        <h1>Perchè il Nome Magda</h1>
         <p class="pAU"> L'idea del nome nasce dal videogioco preferito di uno di noi: </p><br>
         <img src="pictures/The_Legend_of_Zelda_Breath_of_the_Wild_logo.png" id="zelda_logo">
+        <hr>
+
         <div class="row" style="margin-top: 40px;">
             <div class="col-sm">
                 <h2>Nel gioco sono presenti moltissimi puzzle detti sacrari</h2>
@@ -119,11 +124,13 @@ session_start();
     </div>
     <hr>
     <div class="container-fluid mx-0 my-3" style="color: #303926; text-align: center;">
+
         <h3>Se hai altre curiosità non esitare a contattarci!</h3>
         <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" style="stroke:#303926; stroke-width:1.5px " fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z" />
         </svg> <br>
         <a class="btn btn-xxl btn-primary mb-4" role="button" style="font-size: 30px; border-radius: 25px;" href="contattaci.php">Contattaci</a>
+
     </div>
     <div class="text-center p-3" style="background-color:#303926; color: white;">
         © 2021 Proudly made in Italy:

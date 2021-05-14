@@ -60,9 +60,22 @@ if (isset($_POST["delete"])) {
         <style>
             div.card {
                 float: left;
-                margin: 10px;
+                margin: 23px;
                 padding: 0px;
+                border: 3px solid #F6EEDF;
+                border-radius: 25px;
             }
+
+            .card-img-top {
+                object-fit: cover;
+                object-position: 50% 30%;
+                max-width: 400px;
+                max-height: 180px;
+                border-bottom: 3px solid #F6EEDF;
+                border-top-left-radius: 25px;
+                border-top-right-radius: 25px;
+            }
+
         </style>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
@@ -242,20 +255,20 @@ if (isset($_POST["delete"])) {
         </div>
         <hr>
         <div class="container-fluid">
-           
-                <div class="scaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;"> 
-                    <h1 style="color: #f6eedf;margin-top: 20px;">SCADUTO:</h1>
-                </div>
-                
-                <div class="oggi row" style="background-color: #303926; border-radius:25px; margin: 20px;"> 
-                    <h1 style="color: #bfcba8;margin-top: 20px;">OGGI:</h1>
-                </div>
-                
-                <div class="nonscaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;">
-                    <h1 style="color: #f6eedf;margin-top: 20px;">TRA POCO:</h1>
-                </div>
-                <br>
-            
+
+            <div class="scaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;">
+                <h1 style="color: #f6eedf;margin-top: 20px;">SCADUTO:</h1>
+            </div>
+
+            <div class="oggi row" style="background-color: #303926; border-radius:25px; margin: 20px;">
+                <h1 style="color: #bfcba8;margin-top: 20px;">OGGI:</h1>
+            </div>
+
+            <div class="nonscaduto row" style="background-color: #a0937d; border-radius:25px; margin: 20px;">
+                <h1 style="color: #f6eedf;margin-top: 20px;">TRA POCO:</h1>
+            </div>
+            <br>
+
         </div>
 
         <script>
@@ -271,8 +284,7 @@ if (isset($_POST["delete"])) {
                         console.log(date);
                         if (today.getDate() > date.getDate()) {
                             return "SCADUTO";
-                        }
-                        else if(today.getDate() == date.getDate()){
+                        } else if (today.getDate() == date.getDate()) {
                             return "OGGI";
                         }
                         month = '' + (date.getMonth() + 1),
@@ -297,10 +309,11 @@ if (isset($_POST["delete"])) {
                     $.each(data, function(i, field) {
                         var final_date = MyFunctions.waterSchedule(field.inizio, field.intervallo);
                         if (final_date == "SCADUTO") {
-                            var card = `<div class="card" style="width: 15rem; margin-bottom:80px">
-                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                            var card = `<div class="card" style="width: 20rem; margin-bottom:80px">
+                                  <img src="avatars/` + field.specie + `.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h3 class="card-title">` + field.nickname + `</h3>
+                                    <hr class='hrCard'>
                                     <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
                                     <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
                                     <form action='lemiepiante.php' method="POST">
@@ -309,12 +322,12 @@ if (isset($_POST["delete"])) {
                                     </form>   
                                  </div>`;
                             $(".scaduto").append(card);
-                        }
-                        else if(final_date == "OGGI"){
-                            var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
-                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                        } else if (final_date == "OGGI") {
+                            var card = `<div class="card" style="width: 20rem; margin-bottom:80px">
+                            <img src="avatars/` + field.specie + `.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h3 class="card-title">` + field.nickname + `</h3>
+                                    <hr class='hrCard'>
                                     <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
                                     <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
                                     <form action='lemiepiante.php' method="POST">
@@ -323,20 +336,21 @@ if (isset($_POST["delete"])) {
                                     </form>   
                                  </div>`;
                             $(".oggi").append(card);
-                        }
-                        else{
-                            var card = `<div class="card" style="width: 18rem; margin-bottom:80px">
-                                  <img src="avatar.jpg" class="card-img-top" alt="...">
+                        } else {
+                            var card = `<div class="card" style="width: 20rem; margin-bottom:80px">
+                            <img src="avatars/` + field.specie + `.jpg" class="card-img-top" alt="...">
                                   <div class="card-body">
-                                    <h4 class="card-title">` + field.nickname + `</h4>
+                                    <h3 class="card-title">` + field.nickname + `</h3>
+                                    <hr class='hrCard'>
                                     <h5 class="card-title"> Specie: <br>` + field.specie + `</h5>
                                     <p "class="card-text"> <b> Da annaffiare: <br>` + final_date + `</b></p>                           
-                                    <form action='lemiepiante.php' method="POST">  
+                                    <form action='lemiepiante.php' method="POST">
+                                        <button class="btn btn-primary" disabled>Annaffiata</button>  
                                         <button name="delete" type="submit" class="btn btn-danger" style=" border-radius: 25px" value="` + field.pianteID + `">Elimina</button>
                                     </form>   
                                  </div>`;
                             $(".nonscaduto").append(card);
-                            
+
                         }
                     });
                 });
@@ -384,13 +398,12 @@ if (isset($_POST["delete"])) {
 
             loaderSpinner();
         </script>
-
-
-
-
-        
-
-
+        <footer>
+            <div class="text-center p-3 bottom" style="background-color:#303926; color: white;">
+                © 2021 Proudly made in Italy:
+                <a class="text-light" href="index.php">Magda</a>
+            </div>
+        </footer>
     </div>
 
 </body>
