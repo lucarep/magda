@@ -700,3 +700,9 @@ p.pAU {
     background-size: cover;
     background-position: 50% 45%;
 }
+
+.progress {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+}

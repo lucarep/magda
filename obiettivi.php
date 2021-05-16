@@ -46,13 +46,48 @@ $query3 = "UPDATE haobiettivi
            WHERE utente = $_SESSION[utentiID]";
 $result3 = mysqli_query($conn, $query3);
 
-// CALCOLO OBIETTIVI COMPLETATI
+//CALCOLO OBIETTIVI DI PIANTE COMPLETATI
+$data = date("Y-m-d");
+$query5 = "UPDATE haobiettivi 
+           INNER JOIN obiettivi ON haobiettivi.obiettivoID = obiettivi.id 
+           SET sbloccato = 1, dataobiettivo = '$data'
+           WHERE haobiettivi.utente = $_SESSION[utentiID] 
+           AND haobiettivi.obiettivoID = obiettivi.id 
+           AND haobiettivi.numeropiante >= obiettivi.goal 
+           AND obiettivi.tipo = 'pianta'
+           AND haobiettivi.sbloccato = 0;";
+$result5 = mysqli_query($conn, $query5);
 
+//CALCOLO OBIETTIVI DI ACQUA COMPLETATI
+$data = date("Y-m-d");
+$query6 = "UPDATE haobiettivi 
+           INNER JOIN obiettivi ON haobiettivi.obiettivoID = obiettivi.id 
+           SET sbloccato = 1, dataobiettivo = '$data'
+           WHERE haobiettivi.utente = $_SESSION[utentiID] 
+           AND haobiettivi.obiettivoID = obiettivi.id 
+           AND haobiettivi.hainnaffiato >= obiettivi.goal 
+           AND obiettivi.tipo = 'acqua'
+           AND haobiettivi.sbloccato = 0;";
+$result6 = mysqli_query($conn, $query6);
+
+// CALCOLO TOTALE OBIETTIVI COMPLETATI
 $query4 = "SELECT COUNT(*) as completati FROM haobiettivi as ho WHERE ho.utente = $_SESSION[utentiID] AND ho.sbloccato = 1;";
 $result4 = mysqli_query($conn, $query4);
 $process = $result4 = mysqli_fetch_array($result4);
 $completati = $process[0];
 
+// RESTITUISCO INFO OBIETTIVI 
+$query7 = "SELECT ho.id,ho.utente,ho.obiettivoID,ho.numeropiante,ho.hainnaffiato,ho.sbloccato,ho.dataobiettivo,o.goal
+           FROM haobiettivi as ho, obiettivi as o
+           WHERE ho.utente = $_SESSION[utentiID] 
+           AND ho.obiettivoID = o.id;";
+$result = $conn->query($query7);
+$values = array();
+
+while ($row = $result->fetch_assoc()) {
+    array_push($values, $row);
+}
+$json = json_encode($values);
 
 ?>
 
@@ -128,6 +163,11 @@ $completati = $process[0];
 
             <?php
             echo "<h4 style='color: #303926;'> Hai raggiunto: " . $completati . "/" . $tot . " obiettivi 🏆</h4>";
+
+            $width = round(($completati / $tot) * 100, 2);
+            echo "<div class='progress'>
+                <div class='progress-bar bg-success' role='progressbar' style='width: " . $width . "%' aria-valuenow= '" . $completati . "' aria-valuemin='0' aria-valuemax= " . $tot . "></div>
+            </div>";
             ?>
         </div>
     </div>
