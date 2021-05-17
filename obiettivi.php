@@ -160,10 +160,10 @@ $completati = $process[0];
     </div>
     <hr>
     <div class="container-fluid completati">
-        <h1> COMPLETATI:</h1>
+        <h1 style="color: #303926; margin: 30px"> COMPLETATI:</h1>
     </div>
     <div class="container-fluid dacompletare">
-        <h1>DA COMPLETARE:</h1>
+        <h1 style="color: #303926; margin: 30px"> DA COMPLETARE:</h1>
     </div>
     <script>
         $(document).ready(function() {
@@ -172,16 +172,17 @@ $completati = $process[0];
                 $.each(data, function(i, field) {
                     var completato = field.sbloccato;
                     if (completato == '1') {
-                        var obiettivoC = `<div class = 'roundedDiv'>
+                        var obiettivoC = `<div class = 'roundedDiv2'>
                         <div class = 'row'>
                             <div class="col-sm"> 🏆 </div>
                             <div class="col-sm">
-                            <h3>` + field.nome + `</h3>
+                            <h3 class = 'completato'>` + field.nome + `</h3>
                             <br>
-                            <p>` + field.descrizione + `</p>
+                            <h5 class = 'completato'>` + field.descrizione + `</h5>
                             </div>
                             <div class="col-sm">
-                            <h4> Completato il: ` + field.dataobiettivo + `</h4>
+                            <br>
+                            <h5 class = 'completato'> Completato il : ` + field.dataobiettivo + `</h5>
                             </div>
                         </div>
                         </div>`
@@ -191,13 +192,13 @@ $completati = $process[0];
                             var numPiante = Number(field.numeropiante);
                             var goal = Number(field.goal); 
                             var percentuale = (numPiante/goal) * 100;
-                            var obiettivoNC = `<div class = 'roundedDiv'>
+                            var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
                             <div class="col-sm"> 🏆 </div>
                             <div class="col-sm">
-                            <h3>` + field.nome + `</h3>
+                            <h3 class="noncompletato">` + field.nome + `</h3>
                             <br>
-                            <p>` + field.descrizione + `</p>
+                            <p class="noncompletato">` + field.descrizione + `</p>
                             </div>
                             <div class="col-sm"> 
                             <br>
@@ -214,13 +215,13 @@ $completati = $process[0];
                             var annaffiato = Number(field.hainnaffiato);
                             var goal = Number(field.goal); 
                             var percentuale = (annaffiato/goal) * 100;
-                            var obiettivoNC = `<div class = 'roundedDiv'>
+                            var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
                             <div class="col-sm"> 🏆 </div>
                             <div class="col-sm">
-                            <h3>` + field.nome + `</h3>
+                            <h3 class="noncompletato">` + field.nome + `</h3>
                             <br>
-                            <p>` + field.descrizione + `</p>
+                            <p class="noncompletato">` + field.descrizione + `</p>
                             </div>
                             <div class="col-sm"> 
                             <br>

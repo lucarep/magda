@@ -71,7 +71,6 @@ body {
 h1 {
     font-size: calc(1vw + 2rem);
     font-family: "Roxbo Bold";
-    
 }
 
 h2 {
@@ -705,4 +704,31 @@ p.pAU {
     margin-left: 10px;
     margin-right: 10px;
     padding: 0;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #f6eedf;
+}
+
+.roundedDiv2 {
+    background-color: #303926;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.roundedDiv3 {
+    background-color: #a0937d;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.completato {
+    color: #bfcba8;
+    text-transform: capitalize;
+}
+
+.noncompletato {
+    color: #f6eedf;
+    text-transform: capitalize;
 }
