@@ -310,7 +310,7 @@ if (isset($_POST["delete"])) {
 
 
                 }
-                $.getJSON("fetch.php", function(data, status) {
+                $.getJSON("file php/fetch.inc.php", function(data, status) {
                     $.each(data, function(i, field) {
                         var final_date = MyFunctions.waterSchedule(field.inizio, field.intervallo);
                         if (final_date == "SCADUTO") {

@@ -168,7 +168,7 @@ $completati = $process[0];
     <script>
         $(document).ready(function() {
 
-            $.getJSON("fetch2.php", function(data, status) {
+            $.getJSON("file php/fetch2.inc.php", function(data, status) {
                 $.each(data, function(i, field) {
                     var completato = field.sbloccato;
                     if (completato == '1') {
