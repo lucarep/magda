@@ -76,19 +76,6 @@ $result4 = mysqli_query($conn, $query4);
 $process = $result4 = mysqli_fetch_array($result4);
 $completati = $process[0];
 
-// RESTITUISCO INFO OBIETTIVI 
-$query7 = "SELECT ho.id,ho.utente,ho.obiettivoID,ho.numeropiante,ho.hainnaffiato,ho.sbloccato,ho.dataobiettivo,o.goal
-           FROM haobiettivi as ho, obiettivi as o
-           WHERE ho.utente = $_SESSION[utentiID] 
-           AND ho.obiettivoID = o.id;";
-$result = $conn->query($query7);
-$values = array();
-
-while ($row = $result->fetch_assoc()) {
-    array_push($values, $row);
-}
-$json = json_encode($values);
-
 ?>
 
 <head>
@@ -172,10 +159,94 @@ $json = json_encode($values);
         </div>
     </div>
     <hr>
+    <div class="container-fluid completati">
+        <h1> COMPLETATI:</h1>
+    </div>
+    <div class="container-fluid dacompletare">
+        <h1>DA COMPLETARE:</h1>
+    </div>
+    <script>
+        $(document).ready(function() {
+
+            $.getJSON("fetch2.php", function(data, status) {
+                $.each(data, function(i, field) {
+                    var completato = field.sbloccato;
+                    if (completato == '1') {
+                        var obiettivoC = `<div class = 'roundedDiv'>
+                        <div class = 'row'>
+                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm">
+                            <h3>` + field.nome + `</h3>
+                            <br>
+                            <p>` + field.descrizione + `</p>
+                            </div>
+                            <div class="col-sm">
+                            <h4> Completato il: ` + field.dataobiettivo + `</h4>
+                            </div>
+                        </div>
+                        </div>`
+                        $(".completati").append(obiettivoC);
+                    } else {
+                        if (field.tipo == 'pianta') {
+                            var numPiante = Number(field.numeropiante);
+                            var goal = Number(field.goal); 
+                            var percentuale = (numPiante/goal) * 100;
+                            var obiettivoNC = `<div class = 'roundedDiv'>
+                            <div class = 'row'>
+                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm">
+                            <h3>` + field.nome + `</h3>
+                            <br>
+                            <p>` + field.descrizione + `</p>
+                            </div>
+                            <div class="col-sm"> 
+                            <br>
+                            <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ` + percentuale + `%" aria-valuenow="` + percentuale + `" aria-valuemin="0" aria-valuemax="` + goal + `">
+                            ` + percentuale + `%
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                            $(".dacompletare").append(obiettivoNC);
+                        } else {
+                            var annaffiato = Number(field.hainnaffiato);
+                            var goal = Number(field.goal); 
+                            var percentuale = (annaffiato/goal) * 100;
+                            var obiettivoNC = `<div class = 'roundedDiv'>
+                            <div class = 'row'>
+                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm">
+                            <h3>` + field.nome + `</h3>
+                            <br>
+                            <p>` + field.descrizione + `</p>
+                            </div>
+                            <div class="col-sm"> 
+                            <br>
+                            <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ` + percentuale + `%" aria-valuenow="` + percentuale + `" aria-valuemin="0" aria-valuemax="` + goal + `">
+                                ` + percentuale + `%
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>`
+                            $(".dacompletare").append(obiettivoNC);
+
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+    
     <footer>
-        <div class="text-center p-3 fixed-bottom" style="background-color:#303926; color: white;">
+        <div class="text-center p-3 bottom" style="background-color:#303926; color: white;">
             © 2021 Proudly made in Italy:
             <a class="text-light" href="index.php">Magda</a>
         </div>
     </footer>
+    
 </body>
