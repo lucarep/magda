@@ -93,9 +93,13 @@ $completati = $process[0];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
+
 </head>
 
 <body>
+<div class="loader">
+  </div>
+ <div class="content">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Magda</a>
@@ -174,7 +178,7 @@ $completati = $process[0];
                     if (completato == '1') {
                         var obiettivoC = `<div class = 'roundedDiv2'>
                         <div class = 'row'>
-                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm"><img src="immagini obiettivi/` + field.nome + `.jpg" class="img-fluid" alt="..." id="immaginiOb"></div>
                             <div class="col-sm">
                             <h3 class = 'completato'>` + field.nome + `</h3>
                             <br>
@@ -191,10 +195,10 @@ $completati = $process[0];
                         if (field.tipo == 'pianta') {
                             var numPiante = Number(field.numeropiante);
                             var goal = Number(field.goal); 
-                            var percentuale = (numPiante/goal) * 100;
+                            var percentuale =(numPiante/goal) * 100;
                             var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
-                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm"><img src="immagini obiettivi/` + field.nome + `.jpg" class="img-fluid" alt="..." id="immaginiOb"></div>
                             <div class="col-sm">
                             <h3 class="noncompletato">` + field.nome + `</h3>
                             <br>
@@ -214,10 +218,10 @@ $completati = $process[0];
                         } else {
                             var annaffiato = Number(field.hainnaffiato);
                             var goal = Number(field.goal); 
-                            var percentuale = (annaffiato/goal) * 100;
+                            var percentuale =(annaffiato/goal) * 100;
                             var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
-                            <div class="col-sm"> 🏆 </div>
+                            <div class="col-sm"> <img src="immagini obiettivi/` + field.nome + `.jpg" class="img-fluid" alt="..." id="immaginiOb"></div>
                             <div class="col-sm">
                             <h3 class="noncompletato">` + field.nome + `</h3>
                             <br>
@@ -242,6 +246,48 @@ $completati = $process[0];
             });
         });
     </script>
+
+<script>
+/*LOADING*/
+    function loaderSpinner() {
+    $(window).load(function() {
+        var loader = $('.loader');
+var wHeight = $(window).height();
+var wWidth = $(window).width();
+var i = 0;
+
+loader.css({
+    top: wHeight / 2 - 2.5,
+    left: wWidth / 2 - 200
+ })
+      
+  do{
+    loader.animate({
+      width: i
+    },10)
+    i+=3;
+  } while(i <= 400)
+  if(i === 402){
+    loader.animate({
+      left: 0,
+      width: '100%'
+    })
+    loader.animate({
+      top: '0',
+      height: '100vh'
+    })
+  }
+      
+ setTimeout(function(){
+        $('.content').fadeIn("slow");
+        (loader).fadeOut("fast");
+      },2500);
+    });
+
+}
+
+loaderSpinner();
+</script>
     
     <footer>
         <div class="text-center p-3 bottom" style="background-color:#303926; color: white;">
@@ -249,5 +295,5 @@ $completati = $process[0];
             <a class="text-light" href="index.php">Magda</a>
         </div>
     </footer>
-    
+</div>   
 </body>

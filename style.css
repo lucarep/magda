@@ -732,3 +732,10 @@ p.pAU {
     color: #f6eedf;
     text-transform: capitalize;
 }
+
+
+#immaginiOb{
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+}
