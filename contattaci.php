@@ -19,12 +19,12 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
 
     // preparo l'invio della mail
 
-    $to = "";
+    $to = "magdaltw2021@gmail.com";
     $contenuto = "";
     $contenuto .= "Nuovo messaggio da: " . $nome . "\r\n";
     $contenuto .= "messaggio: " . $messaggio . "\r\n";
 
-    // mail($to,$email,$contenuto);
+   mail($to,$email,$contenuto);
 
     $messaggio_inviato = true;
   }
