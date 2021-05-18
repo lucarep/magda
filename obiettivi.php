@@ -196,6 +196,7 @@ $completati = $process[0];
                             var numPiante = Number(field.numeropiante);
                             var goal = Number(field.goal); 
                             var percentuale =(numPiante/goal) * 100;
+                            percentuale = percentuale.toFixed(1);
                             var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
                             <div class="col-sm"><img src="immagini obiettivi/` + field.nome + `.jpg" class="img-fluid" alt="..." id="immaginiOb"></div>
@@ -219,6 +220,7 @@ $completati = $process[0];
                             var annaffiato = Number(field.hainnaffiato);
                             var goal = Number(field.goal); 
                             var percentuale =(annaffiato/goal) * 100;
+                            percentuale = percentuale.toFixed(1);
                             var obiettivoNC = `<div class = 'roundedDiv3'>
                             <div class = 'row'>
                             <div class="col-sm"> <img src="immagini obiettivi/` + field.nome + `.jpg" class="img-fluid" alt="..." id="immaginiOb"></div>
