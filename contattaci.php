@@ -1,34 +1,6 @@
 <?php
 
-
-
-session_start();
-
-
-
-$messaggio_inviato = false;
-
-// controllo se è stata inserita l'email
-if (isset($_POST['email']) && $_POST['email'] != '') {
-
-  // controllo se l'email è valida
-  if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $messaggio = $_POST['messaggio'];
-
-    // preparo l'invio della mail
-
-    $to = "magdaltw2021@gmail.com";
-    $contenuto = "";
-    $contenuto .= "Nuovo messaggio da: " . $nome . "\r\n";
-    $contenuto .= "messaggio: " . $messaggio . "\r\n";
-
-   mail($to,$email,$contenuto);
-
-    $messaggio_inviato = true;
-  }
-}
+include 'sendemail.php';
 
 ?>
 
@@ -52,7 +24,7 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
   <?php
   if ($messaggio_inviato) :
   ?>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Magda</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,8 +49,8 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
         </div>
       </div>
     </nav>
-    <header id="form_desc">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+      <header id="form_desc">
+       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
         <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
       </svg> <br>
       Grazie per averci contattato!
@@ -133,7 +105,7 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
         <input id="nomeC" name="nome" type="text" placeholder="NOME" required>
         <input id="emailC" name="email" type="email" placeholder="EMAIL" required>
         <textarea id="messaggioC" name="messaggio" type="text" placeholder="MESSAGGIO" required></textarea>
-        <input id="submitC" type="submit" value="INVIA!">
+        <input id="submitC" type="submit" name="submitC" value="INVIA!">
       </form>
     </div>
     <footer>
@@ -149,4 +121,10 @@ if (isset($_POST['email']) && $_POST['email'] != '') {
 <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
 <script type="module" defer src="JS\kursor.js"></script>
 
+<script type="text/javascript">
+
+ if(window.history.replaceState){
+  window.history.replaceState(null, null, window.location.href);
+ }
+ </script>
 </html>
